@@ -1,0 +1,13 @@
+{
+	"eslint.options": {
+		"configFile": ".eslintrc.js"
+  },
+	"eslint.autoFixOnSave": true,
+	"eslint.packageManager": "npm",
+	"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		"vue"
+	],
+	"editor.formatOnSave": true
+}

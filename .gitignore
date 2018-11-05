@@ -1,5 +1,9 @@
 .DS_Store
 node_modules
+elm-stuff
+**/elm-stuff/**
+**/**/elm-stuff/**/**
+**/**/**/elm-stuff/**/**/**
 /dist
 
 /tests/e2e/videos/
@@ -16,7 +20,6 @@ yarn-error.log*
 
 # Editor directories and files
 .idea
-.vscode
 *.suo
 *.ntvs*
 *.njsproj
