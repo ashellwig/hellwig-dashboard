@@ -12,5 +12,8 @@
 	"editor.formatOnSave": true,
 	"[vue]": {
 		"editor.formatOnSave": false
-	}
+	},
+	"npm.packageManager": "npm",
+	"npm-intellisense.importES6": true,
+	"npm.fetchOnlinePackageInfo": true
 }

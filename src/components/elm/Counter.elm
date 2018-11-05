@@ -1,16 +1,12 @@
-port module Main exposing (main)
+module Main exposing (Model, Msg(..), init, main, update, view)
 
+import Browser
 import Html exposing (Html, button, div, text)
 import Html.Events exposing (onClick)
 
 
 main =
-    Html.program
-        { init = init
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-        }
+    Browser.sandbox { init = init, update = update, view = view }
 
 
 
@@ -21,53 +17,38 @@ type alias Model =
     Int
 
 
-init : ( Model, Cmd Msg )
+init : Model
 init =
-    ( 0, Cmd.none )
+    0
 
 
 
--- Update
+-- UPDATE
 
 
 type Msg
     = Increment
     | Decrement
-    | Multiply Int
 
 
-update : Msg -> Model -> ( Model, Cmd Msg )
+update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            ( model + 1, watchCounter (toString msg) )
+            model + 1
 
         Decrement ->
-            ( model - 1, watchCounter (toString msg) )
-
-        Multiply val ->
-            ( model * val, watchCounter (toString msg) )
-
-
-port counter : (Int -> msg) -> Sub msg
-
-
-port watchCounter : String -> Cmd msg
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    counter Multiply
+            model - 1
 
 
 
--- View
+-- VIEW
 
 
 view : Model -> Html Msg
 view model =
     div []
         [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (toString model) ]
+        , div [] [ text (String.fromInt model) ]
         , button [ onClick Increment ] [ text "+" ]
         ]
