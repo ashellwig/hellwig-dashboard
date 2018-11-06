@@ -6,6 +6,11 @@ import store from './store'
 import './registerServiceWorker'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@fortawesome/fontawesome-free/css/all.css'
+import dotenv from 'dotenv'
+
+dotenv.config({
+  path: '../.env.local'
+})
 
 Vue.config.productionTip = false
 
